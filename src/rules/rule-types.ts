@@ -20,7 +20,7 @@ export interface MessageResult {
 }
 
 export interface RuleEvaluator {
-  (context: Commit): MessageResult;
+  (context: Commit): Promise<MessageResult> | MessageResult;
 }
 
 export interface RuleMeta {

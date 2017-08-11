@@ -6,7 +6,7 @@ export const sampleRule: RuleFactory = config => ({
     key: 'sample-rule',
     description: 'This is a sample rule',
   },
-  evaluate(context) {
+  async evaluate(context) {
     return {
       status: ResultStatus.Okay,
     };

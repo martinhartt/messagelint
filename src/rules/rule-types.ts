@@ -7,10 +7,10 @@ export interface Commit {
 }
 
 export enum ResultStatus {
-  Okay,
-  Modify,
+  Approved,
+  AutoModify,
   ConfirmModify,
-  Reject,
+  Rejected,
 }
 
 export interface MessageResult {

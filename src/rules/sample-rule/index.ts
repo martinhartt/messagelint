@@ -8,7 +8,7 @@ export const sampleRule: RuleFactory = config => ({
   },
   async evaluate(context) {
     return {
-      status: ResultStatus.Okay,
+      status: ResultStatus.Approved,
     };
   },
 });

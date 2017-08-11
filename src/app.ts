@@ -11,7 +11,7 @@ export default async function app(message: string) {
       },
     });
 
-    if (result.status == ResultStatus.Okay) {
+    if (result.status == ResultStatus.Approved) {
       return message;
     } else {
       throw new Error(result.warning);

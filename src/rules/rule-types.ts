@@ -39,5 +39,5 @@ export interface Config {
 }
 
 export interface RuleFactory {
-  (config: Config): Rule;
+  (config?: Config): Rule;
 }

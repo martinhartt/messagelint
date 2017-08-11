@@ -1,4 +1,4 @@
-import { RuleFactory, Commit, ResultStatus } from '../rule-types';
+import { RuleFactory, ResultStatus } from '../rule-types';
 
 export const sampleRule: RuleFactory = config => ({
   meta: {

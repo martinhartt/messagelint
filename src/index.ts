@@ -5,6 +5,10 @@ import app from './app';
 program
   .arguments('message')
   .action(message => {
-    console.log(app(message));
+    app(message)
+      .then(console.log)
+      .catch(err =>
+        console.error(`Your commit was rejected due to: \n\n${err.message}`),
+      );
   })
   .parse(process.argv);

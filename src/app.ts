@@ -1,11 +1,11 @@
 import loadRules from './rules/load-rules';
-import { MessageResult, ResultStatus } from './rules/rule-types';
+import { ResultStatus } from './rules/rule-types';
 
 export default async function app(message: string) {
   const rules = loadRules();
 
   for (const rule of rules) {
-    const result: MessageResult = await rule.evaluate({
+    const result = await rule.evaluate({
       message: {
         raw: message,
       },

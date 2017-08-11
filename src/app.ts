@@ -1,16 +1,21 @@
-import sampleRules from './rules/sample-rule';
-import { MessageResult, ResultStatus } from './ruleTypes';
+import loadRules from './rules/load-rules';
+import { MessageResult, ResultStatus } from './rules/rule-types';
 
 export default function app(message: string) {
-  const result: MessageResult = sampleRules.evaluate({
-    message: {
-      raw: message,
-    },
-  });
+  const rules = loadRules();
+  console.log(rules);
 
-  if (result.status == ResultStatus.Okay) {
-    return message;
-  } else {
-    throw new Error(result.warning);
+  for (const rule of rules) {
+    const result: MessageResult = rule.evaluate({
+      message: {
+        raw: message,
+      },
+    });
+
+    if (result.status == ResultStatus.Okay) {
+      return message;
+    } else {
+      throw new Error(result.warning);
+    }
   }
 }

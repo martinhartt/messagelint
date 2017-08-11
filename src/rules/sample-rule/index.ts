@@ -1,15 +1,16 @@
-import Rule, { Commit, ResultStatus } from '../ruleTypes';
+import { RuleFactory, Commit, ResultStatus } from '../rule-types';
 
-const sampleRule: Rule = {
+export const sampleRule: RuleFactory = config => ({
   meta: {
     name: 'Sample rule',
+    key: 'sample-rule',
     description: 'This is a sample rule',
   },
-  evaluate(context, config) {
+  evaluate(context) {
     return {
       status: ResultStatus.Okay,
     };
   },
-};
+});
 
 export default sampleRule;

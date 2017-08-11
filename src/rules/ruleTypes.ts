@@ -9,6 +9,7 @@ export interface Commit {
 export enum ResultStatus {
   Okay,
   Modify,
+  ConfirmModify,
   Reject,
 }
 
@@ -19,7 +20,7 @@ export interface MessageResult {
 }
 
 export interface RuleEvaluator {
-  (context: Commit): MessageResult;
+  (context: Commit, config: object): MessageResult;
 }
 
 export interface RuleMeta {

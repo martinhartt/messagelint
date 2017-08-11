@@ -5,7 +5,7 @@ const sampleRule: Rule = {
     name: 'Sample rule',
     description: 'This is a sample rule',
   },
-  evaluate(context) {
+  evaluate(context, config) {
     return {
       status: ResultStatus.Okay,
     };

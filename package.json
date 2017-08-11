@@ -4,18 +4,14 @@
   "description": "A commit message formatter",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register src/**/*.test.ts",
+    "test": "mocha -r ts-node/register src/*.test.ts src/**/*.test.ts",
     "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/martinhartt/better-commit.git"
   },
-  "keywords": [
-    "commit",
-    "lint",
-    "better"
-  ],
+  "keywords": ["commit", "lint", "better"],
   "author": "Martin Hartt",
   "license": "MIT",
   "bugs": {

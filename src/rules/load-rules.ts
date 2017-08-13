@@ -1,4 +1,4 @@
-import Rule, { Config } from './rule-types';
+import { Rule, Config } from './rule-types';
 
 const defaultConfig: Config = {
   'sample-rule': true,

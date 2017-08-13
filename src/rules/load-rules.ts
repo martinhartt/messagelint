@@ -1,7 +1,7 @@
 import { Rule, Config } from './rule-types';
 
 const defaultConfig: Config = {
-  'sample-rule': true,
+  'first-letter-capital': true,
 };
 
 export default function loadRules(config: Config = {}): Rule[] {

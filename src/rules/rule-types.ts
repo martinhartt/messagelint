@@ -8,19 +8,18 @@ export interface Commit {
 
 export enum ResultStatus {
   Approved,
-  AutoModify,
-  ConfirmModify,
+  Modify,
   Rejected,
 }
 
-export interface MessageResult {
+export interface Result {
   status: ResultStatus;
   warning?: string;
   proposed?: string;
 }
 
 export interface RuleEvaluator {
-  (context: Commit): Promise<MessageResult> | MessageResult;
+  (context: Commit): Promise<Result> | Result;
 }
 
 export interface RuleMeta {
@@ -29,10 +28,10 @@ export interface RuleMeta {
   description: string;
 }
 
-export default interface Rule {
+export interface Rule {
   meta: RuleMeta;
   evaluate: RuleEvaluator;
-};
+}
 
 export interface Config {
   [key: string]: boolean | object;

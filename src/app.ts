@@ -1,20 +1,22 @@
 import loadRules from './rules/load-rules';
+import ruleRunner from './rules/rule-runner';
 import { ResultStatus } from './rules/rule-types';
 
 export default async function app(message: string) {
   const rules = loadRules();
 
-  for (const rule of rules) {
-    const result = await rule.evaluate({
-      message: {
-        raw: message,
-      },
-    });
+  const result = await ruleRunner(rules, {
+    message: {
+      raw: message,
+    },
+  });
 
-    if (result.status == ResultStatus.Approved) {
-      return message;
-    } else {
+  switch (result.status) {
+    case ResultStatus.Rejected:
       throw new Error(result.warning);
-    }
+    case ResultStatus.Approved:
+      return message;
+    case ResultStatus.Modify:
+      return result.proposed;
   }
 }

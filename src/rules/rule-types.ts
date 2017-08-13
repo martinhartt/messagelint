@@ -19,7 +19,7 @@ export interface Result {
 }
 
 export interface RuleEvaluator {
-  (context: Commit): Promise<Result> | Result;
+  (context: Commit): Promise<Result>;
 }
 
 export interface RuleMeta {

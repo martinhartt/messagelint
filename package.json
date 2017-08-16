@@ -11,7 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/martinhartt/better-commit.git"
   },
-  "keywords": ["commit", "lint", "better"],
+  "keywords": [
+    "commit",
+    "lint",
+    "better"
+  ],
   "author": "Martin Hartt",
   "license": "MIT",
   "bugs": {

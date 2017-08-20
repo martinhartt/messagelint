@@ -1,0 +1,21 @@
+#!/bin/sh
+
+LOCAL="./node_modules/.bin/better-commit"
+if [ ! -f "$LOCAL" ]; then
+  NPM_GLOBAL=`npm root -g`;
+  GLOBAL="$NPM_GLOBAL/better-commit/bin/commit-msg"
+
+  if [ ! -f "$GLOBAL" ]; then
+    echo "Error: Couldn't find better-commit, are you sure you set it up correctly?"
+    exit -1
+  fi
+
+  echo "Found global install in $GLOBAL"
+  HELLO=`eval "$GLOBAL $@"`
+  echo "Result: $HELLO"
+else
+  echo "Found local install in $LOCAL"
+  eval "$LOCAL $@"
+
+  ./node_modules/.bin/commit-msg "$@"
+fi

@@ -7,8 +7,9 @@ program
   .action((command, message) => {
     app(command, message)
       .then(console.log)
-      .catch(err =>
-        console.error(`Your commit was rejected due to: \n\n${err.message}`),
-      );
+      .catch(err => {
+        console.error(err.message);
+        process.exit(1);
+      });
   })
   .parse(process.argv);

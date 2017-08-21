@@ -20,6 +20,7 @@ export default async function app(command: string, message: string) {
 
       writeFile(hookPath, hookTemplateContent);
       chmod(hookPath, '777');
+
       return 'Success ✅';
     case 'lint':
       const rules = loadRules();
@@ -32,13 +33,12 @@ export default async function app(command: string, message: string) {
 
       switch (result.status) {
         case ResultStatus.Rejected:
-        throw new Error(result.warning);
+          throw new Error(`❌  MessageLint: Your commit message was rejected due to: \n\n${result.warning}\n\n`);
         case ResultStatus.Approved:
-        return message;
+          return message;
         case ResultStatus.Modify:
-        return result.proposed;
+          return result.proposed;
       }
-      break;
   }
 
 }

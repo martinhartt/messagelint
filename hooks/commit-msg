@@ -8,6 +8,4 @@ if [ ! -f "$GLOBAL" ]; then
 fi
 
 MESSAGE=`cat $1`
-OUTPUT=`eval "$GLOBAL '$MESSAGE'"`
-
-echo $OUTPUT > $1
+OUTPUT=`eval "$GLOBAL '$MESSAGE' $@"` && echo $OUTPUT > $1

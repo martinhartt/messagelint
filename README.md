@@ -1,19 +1,19 @@
-# Better Commit
+# 🌟 MessageLint
 
 A formatter to make inconsistent commit messages obsolete!
 
 ## Setup
 
 ```
-git clone git@github.com:martinhartt/better-commit.git
+git clone git@github.com:martinhartt/messagelint.git
 npm install
 npm install -g
 ```
 
 ## Usage
 
-```
-better-commit "I fixed the margins on the homepage"
-```
+Go to any git project and run:
 
-*Note: Git hook setup coming soon*
+```
+messagelint setup
+```

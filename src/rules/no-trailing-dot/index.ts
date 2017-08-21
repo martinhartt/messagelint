@@ -9,8 +9,7 @@ export const noTrailingDotRule: RuleFactory = config => ({
   },
   async evaluate(context) {
     const original = context.message.raw;
-    const trimmed = original.trim();
-    const lastChar = trimmed.slice(-1)[0];
+    const lastChar = original.slice(-1)[0];
 
     if (lastChar !== '.') {
       return {
@@ -19,7 +18,7 @@ export const noTrailingDotRule: RuleFactory = config => ({
     }
     return {
       status: ResultStatus.Modify,
-      proposed: original.replace(trimmed[0], trimmed[0].toUpperCase()),
+      proposed: original.slice(0, -1),
     };
   },
 });

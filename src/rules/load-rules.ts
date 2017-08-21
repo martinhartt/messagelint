@@ -1,6 +1,7 @@
 import { Rule, Config } from './rule-types';
 
 const defaultConfig: Config = {
+  'no-whitespace-padding': true,
   'first-letter-capital': true,
 };
 

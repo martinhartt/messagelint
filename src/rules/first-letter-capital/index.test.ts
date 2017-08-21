@@ -28,16 +28,4 @@ describe('firstLetterCapitalRule', () => {
     expect(result.status).to.equal(ResultStatus.Modify);
     expect(result.proposed).to.equal('Fix this issue');
   });
-
-  it('does not modify the whitespace before and after the string', async () => {
-    const context: Commit = {
-      message: {
-        raw: '     fix this issue  ',
-      },
-    };
-
-    const result = await firstLetterCapitalRule().evaluate(context);
-    expect(result.status).to.equal(ResultStatus.Modify);
-    expect(result.proposed).to.equal('     Fix this issue  ');
-  });
 });

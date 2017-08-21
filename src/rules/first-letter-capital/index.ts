@@ -9,16 +9,15 @@ export const firstLetterCapitalRule: RuleFactory = config => ({
   },
   async evaluate(context) {
     const original = context.message.raw;
-    const trimmed = original.trim();
 
-    if (trimmed[0] === trimmed[0].toUpperCase()) {
+    if (original[0] === original[0].toUpperCase()) {
       return {
         status: ResultStatus.Approved,
       };
     }
     return {
       status: ResultStatus.Modify,
-      proposed: original.replace(trimmed[0], trimmed[0].toUpperCase()),
+      proposed: original.replace(original[0], original[0].toUpperCase()),
     };
   },
 });

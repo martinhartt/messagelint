@@ -9,7 +9,9 @@ export const noTrailingDotRule: RuleFactory = config => ({
   },
   async evaluate(context) {
     const original = context.message.raw;
-    const lastChar = original.slice(-1)[0];
+    const lines = original.split('\n');
+    const subject = lines[0];
+    const lastChar = subject.slice(-1)[0];
 
     if (lastChar !== '.') {
       return {
@@ -18,7 +20,7 @@ export const noTrailingDotRule: RuleFactory = config => ({
     }
     return {
       status: ResultStatus.Modify,
-      proposed: original.slice(0, -1),
+      proposed: `${subject.slice(0, -1)}${(lines.length > 1) ? '\n' : ''}${lines.slice(1).join('\n')}`, // HACK
     };
   },
 });

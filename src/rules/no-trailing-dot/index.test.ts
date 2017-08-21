@@ -28,4 +28,16 @@ describe('noTrailingDotRule', () => {
     expect(result.status).to.equal(ResultStatus.Modify);
     expect(result.proposed).to.equal('Fix this issue\n\nBody');
   });
+
+  it('modifies messages to remove the last dots', async () => {
+    const context: Commit = {
+      message: {
+        raw: 'Fix this issue....\n\nBody',
+      },
+    };
+
+    const result = await noTrailingDotRule().evaluate(context);
+    expect(result.status).to.equal(ResultStatus.Modify);
+    expect(result.proposed).to.equal('Fix this issue\n\nBody');
+  });
 });

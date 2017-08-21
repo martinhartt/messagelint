@@ -2,10 +2,10 @@ import { RuleFactory, ResultStatus } from '../rule-types';
 
 export const noTrailingDotRule: RuleFactory = config => ({
   meta: {
-    name: 'First Letter Capital',
-    key: 'first-letter-capital',
+    name: 'No Trailing Dot',
+    key: 'no-trailing-dot',
     description:
-      'This rule ensures that the first letter in the subject is always capital, matching the sentence case.',
+      'This rule ensures that the subject doesn\'t end in a comma.',
   },
   async evaluate(context) {
     const original = context.message.raw;

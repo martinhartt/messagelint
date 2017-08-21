@@ -3,6 +3,7 @@ import { Rule, Config } from './rule-types';
 const defaultConfig: Config = {
   'no-whitespace-padding': true,
   'first-letter-capital': true,
+  'no-trailing-dot': true,
 };
 
 export default function loadRules(config: Config = {}): Rule[] {

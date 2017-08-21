@@ -6,14 +6,21 @@ import 'mocha';
 describe('loadRules', () => {
   it('returns all the rules with no config', () => {
     const result = loadRules();
-    expect(result.map(rule => rule.meta.key)).to.deep.equal(['no-whitespace-padding', 'first-letter-capital']);
+    expect(result.map(rule => rule.meta.key)).to.deep.equal([
+      'no-whitespace-padding',
+      'first-letter-capital',
+      'no-trailing-dot',
+    ]);
   });
 
   it('does not return rules with a false value in config', () => {
     const result = loadRules({
       'first-letter-capital': false,
     });
-    expect(result.map(rule => rule.meta.key)).to.deep.equal(['no-whitespace-padding']);
+    expect(result.map(rule => rule.meta.key)).to.deep.equal([
+      'no-whitespace-padding',
+      'no-trailing-dot'
+    ]);
   });
 
   it('does return rules with a specific config', () => {
@@ -22,6 +29,10 @@ describe('loadRules', () => {
         test: true,
       },
     });
-    expect(result.map(rule => rule.meta.key)).to.deep.equal(['no-whitespace-padding', 'first-letter-capital']);
+    expect(result.map(rule => rule.meta.key)).to.deep.equal([
+      'no-whitespace-padding',
+      'first-letter-capital',
+      'no-trailing-dot',
+    ]);
   });
 });

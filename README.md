@@ -1,4 +1,4 @@
-# MessageLint
+# 🌟 MessageLint
 
 A formatter to make inconsistent commit messages obsolete!
 

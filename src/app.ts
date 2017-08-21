@@ -10,7 +10,7 @@ import { ResultStatus } from './rules/rule-types';
 export default async function app(command: string, message: string) {
   switch (command) {
     case 'setup':
-      console.log('Setting up better-commit...');
+      console.log('Setting up 🌟 MessageLint...\n');
 
       const hookTemplatePath = join(__dirname, '../hooks/commit-msg');
       const hookTemplateContent = await readFile(hookTemplatePath);
@@ -19,7 +19,7 @@ export default async function app(command: string, message: string) {
       const hookPath = join(gitRoot.stdout, '.git/hooks/', 'commit-msg');
 
       writeFile(hookPath, hookTemplateContent);
-      chmod(hookPath, '777');
+      chmod(hookPath, '755');
 
       return 'Success ✅';
     case 'lint':

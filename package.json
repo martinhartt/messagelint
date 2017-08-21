@@ -1,5 +1,5 @@
 {
-  "name": "better-commit",
+  "name": "messagelint",
   "version": "1.0.0",
   "description": "A commit message formatter",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/martinhartt/better-commit.git"
+    "url": "git+https://github.com/martinhartt/messagelint.git"
   },
   "keywords": [
     "commit",
@@ -19,11 +19,11 @@
   "author": "Martin Hartt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/martinhartt/better-commit/issues"
+    "url": "https://github.com/martinhartt/messagelint/issues"
   },
-  "homepage": "https://github.com/martinhartt/better-commit#readme",
+  "homepage": "https://github.com/martinhartt/messagelint#readme",
   "bin": {
-    "better-commit": "./dist/index.js"
+    "messagelint": "./dist/index.js"
   },
   "dependencies": {
     "@types/chai": "^4.0.2",

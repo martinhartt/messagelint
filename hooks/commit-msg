@@ -1,0 +1,11 @@
+#!/bin/sh
+NPM_GLOBAL=`npm root -g`;
+GLOBAL="$NPM_GLOBAL/better-commit/bin/better-commit"
+
+if [ ! -f "$GLOBAL" ]; then
+  echo "Error: Couldn't find better-commit, are you sure you set it up correctly?"
+  exit -1
+fi
+
+MESSAGE=`cat $1`
+OUTPUT=`eval "$GLOBAL '$MESSAGE' $@"` && echo $OUTPUT > $1

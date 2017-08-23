@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register 'src/**/*.test.ts'",
     "start": "node dist/index.js",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' --fix",
     "format": "prettier --write --print-width 100 --single-quote --trailing-comma all --parser typescript 'src/**/*.ts'",
     "build": "tsc",
     "prepublish": "npm run build"

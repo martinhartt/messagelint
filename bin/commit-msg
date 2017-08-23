@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+CURRENT_DIR="$(dirname "$0")"
+ROOT_DIR="$(dirname "$CURRENT_DIR")"
+
+RESULT=`exec /usr/bin/env node --harmony "$ROOT_DIR/dist/index.js" lint "$1"`
+echo $RESULT

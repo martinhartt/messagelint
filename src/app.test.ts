@@ -1,6 +1,6 @@
-import app from './app';
 import { expect } from 'chai';
 import 'mocha';
+import app from './app';
 
 describe('app', () => {
   it('returns the same string', async () => {

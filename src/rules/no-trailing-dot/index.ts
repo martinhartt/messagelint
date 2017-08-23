@@ -1,4 +1,4 @@
-import { RuleFactory, ResultStatus } from '../rule-types';
+import { ResultStatus, RuleFactory } from '../rule-types';
 
 export const noTrailingDotRule: RuleFactory = config => ({
   meta: {

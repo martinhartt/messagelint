@@ -1,5 +1,5 @@
 import ruleRunner from './rule-runner';
-import { Rule, ResultStatus, Result, Commit } from './rule-types';
+import { Commit, Result, ResultStatus, Rule } from './rule-types';
 
 import { expect } from 'chai';
 import 'mocha';

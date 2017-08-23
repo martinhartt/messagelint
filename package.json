@@ -7,7 +7,6 @@
     "test": "mocha -r ts-node/register 'src/**/*.test.ts'",
     "start": "node dist/index.js",
     "build": "tsc",
-    "install": "npm run build",
     "publish:local": "npm run build && npm publish"
   },
   "repository": {

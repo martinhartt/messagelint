@@ -1,14 +1,9 @@
-import { Rule, Result, Commit, ResultStatus } from './rule-types';
+import { Commit, Result, ResultStatus, Rule } from './rule-types';
 
-interface ConfirmModifyCallback {
-  (proposedMessage: string): Promise<boolean>;
-}
+type ConfirmModifyCallback = (proposedMessage: string) => Promise<boolean>;
 
-export default async function ruleRunner(
-  rules: Rule[],
-  commit: Commit,
-): Promise<Result> {
-  let currentCommit = commit;
+export default async function ruleRunner(rules: Rule[], commit: Commit): Promise<Result> {
+  const currentCommit = commit;
   let lastModifyResult: Result | null = null;
 
   for (const rule of rules) {
@@ -18,15 +13,17 @@ export default async function ruleRunner(
       case ResultStatus.Approved:
         continue;
       case ResultStatus.Modify:
-        if (!result.proposed)
+        if (!result.proposed) {
           throw new Error('Rule error: there is no proposed message!');
+        }
 
         lastModifyResult = result;
         currentCommit.message.raw = result.proposed;
         continue;
       case ResultStatus.Rejected:
-        if (!result.warning)
+        if (!result.warning) {
           throw new Error('Rule error: there is no warning message!');
+        }
 
         return result;
     }

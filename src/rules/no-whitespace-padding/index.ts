@@ -1,11 +1,10 @@
-import { RuleFactory, ResultStatus } from '../rule-types';
+import { ResultStatus, RuleFactory } from '../rule-types';
 
 export const noWhitespacePaddingRule: RuleFactory = config => ({
   meta: {
     name: 'No Whitespace Padding',
     key: 'no-whitespace-padding',
-    description:
-      'This rule ensures there is no whitespace around each line of the message',
+    description: 'This rule ensures there is no whitespace around each line of the message',
   },
   async evaluate(context) {
     const original = context.message.raw;
@@ -21,7 +20,7 @@ export const noWhitespacePaddingRule: RuleFactory = config => ({
       return {
         status: ResultStatus.Modify,
         proposed: newString,
-      }
+      };
     }
   },
 });

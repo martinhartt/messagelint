@@ -18,9 +18,7 @@ export interface Result {
   proposed?: string;
 }
 
-export interface RuleEvaluator {
-  (context: Commit): Promise<Result>;
-}
+export type RuleEvaluator = (context: Commit) => Promise<Result>;
 
 export interface RuleMeta {
   name: string;
@@ -37,6 +35,4 @@ export interface Config {
   [key: string]: boolean | object;
 }
 
-export interface RuleFactory {
-  (config?: Config): Rule;
-}
+export type RuleFactory = (config?: Config) => Rule;

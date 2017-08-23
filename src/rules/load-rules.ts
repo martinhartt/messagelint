@@ -1,4 +1,4 @@
-import { Rule, Config } from './rule-types';
+import { Config, Rule } from './rule-types';
 
 const defaultConfig: Config = {
   'no-whitespace-padding': true,

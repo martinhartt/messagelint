@@ -12,7 +12,13 @@ npm install -g messagelint
 messagelint setup
 ```
 
-Then create a commit as usual, and MessageLint will either:
+Then create a commit as usual:
+
+```
+git commit -m "made a change"
+```
+
+MessageLint will either:
 
 - **Approve** your commit message
 - **Modify** your commit message

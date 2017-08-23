@@ -20,9 +20,11 @@ git commit -m "made a change"
 
 MessageLint will either:
 
-- **Approve** your commit message
-- **Modify** your commit message
-- **Reject** your commit message
+- Approve (silently)
+- Modify (silently)
+- Reject (verbosely)
+
+...your commit message
 
 ## Development
 

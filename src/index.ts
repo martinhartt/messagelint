@@ -6,7 +6,7 @@ program
   .arguments('command message')
   .action((command, message) => {
     app(command, message).then(console.log).catch(err => {
-      console.error(err.message);
+      console.error(err.message); // tslint:disable-line:no-console
       process.exit(1);
     });
   })

@@ -13,13 +13,17 @@ export default async function ruleRunner(rules: Rule[], commit: Commit): Promise
       case ResultStatus.Approved:
         continue;
       case ResultStatus.Modify:
-        if (!result.proposed) throw new Error('Rule error: there is no proposed message!');
+        if (!result.proposed) {
+          throw new Error('Rule error: there is no proposed message!');
+        }
 
         lastModifyResult = result;
         currentCommit.message.raw = result.proposed;
         continue;
       case ResultStatus.Rejected:
-        if (!result.warning) throw new Error('Rule error: there is no warning message!');
+        if (!result.warning) {
+          throw new Error('Rule error: there is no warning message!');
+        }
 
         return result;
     }

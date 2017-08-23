@@ -9,7 +9,7 @@ import { ResultStatus } from './rules/rule-types';
 export default async function app(command: string, message: string) {
   switch (command) {
     case 'setup':
-      console.log('Setting up 🌟 MessageLint...\n');
+      console.log('Setting up 🌟 MessageLint...\n'); // tslint:disable-line:no-console
 
       const hookTemplatePath = join(__dirname, '../hooks/commit-msg');
       const hookTemplateContent = await readFile(hookTemplatePath);

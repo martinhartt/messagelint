@@ -4,8 +4,7 @@ export const noTrailingDotRule: RuleFactory = config => ({
   meta: {
     name: 'No Trailing Dot',
     key: 'no-trailing-dot',
-    description:
-      'This rule ensures that the subject doesn\'t end in a comma.',
+    description: "This rule ensures that the subject doesn't end in a comma.",
   },
   async evaluate(context) {
     const original = context.message.raw;
@@ -27,7 +26,6 @@ export const noTrailingDotRule: RuleFactory = config => ({
       status: ResultStatus.Modify,
       proposed: `${matches[1]}${matches[3]}`,
     };
-
   },
 });
 

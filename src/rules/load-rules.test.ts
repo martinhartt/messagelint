@@ -19,7 +19,7 @@ describe('loadRules', () => {
     });
     expect(result.map(rule => rule.meta.key)).to.deep.equal([
       'no-whitespace-padding',
-      'no-trailing-dot'
+      'no-trailing-dot',
     ]);
   });
 

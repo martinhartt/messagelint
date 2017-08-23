@@ -1,6 +1,6 @@
 #!/bin/sh
 NPM_GLOBAL=`npm root -g`;
-GLOBAL="$NPM_GLOBAL/messagelint/bin/messagelint"
+GLOBAL="$NPM_GLOBAL/messagelint/bin/commit-msg"
 
 if [ ! -f "$GLOBAL" ]; then
   echo "Error: Couldn't find MessageLint, are you sure it is set up correctly?"

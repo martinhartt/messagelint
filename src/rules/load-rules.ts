@@ -2,6 +2,7 @@ import { Config, Rule } from './rule-types';
 
 const defaultConfig: Config = {
   'no-whitespace-padding': true,
+  'first-word-verb': true,
   'first-letter-capital': true,
   'no-trailing-dot': true,
 };

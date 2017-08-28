@@ -52,3 +52,5 @@ Message subjects shouldn't end with a dot and this rule strips them if necessary
 ### First letter capital
 
 In line with most conventions, this rule ensures the first letter is capital.
+
+### First word of the subject is a verb in present tense and imperitive mood

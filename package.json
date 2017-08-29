@@ -4,10 +4,13 @@
   "description": "A commit message formatter",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register 'src/**/*.test.ts'",
+    "test": "npm run check && mocha -r ts-node/register 'src/**/*.test.ts'",
     "start": "node dist/index.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts' --fix",
+    "lint:check": "tslint -c tslint.json 'src/**/*.ts'",
     "format": "prettier --write --print-width 100 --single-quote --trailing-comma all --parser typescript 'src/**/*.ts'",
+    "format:check": "prettier --single-quote --list-different --trailing-comma all --parser typescript 'src/**/*.ts'",
+    "check": "npm run lint:check && npm run format:check",
     "build": "tsc",
     "prepublish": "npm run build"
   },

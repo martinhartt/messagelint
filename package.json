@@ -10,7 +10,7 @@
     "lint:check": "tslint -c tslint.json 'src/**/*.ts'",
     "format": "prettier --write --print-width 100 --single-quote --trailing-comma all --parser typescript 'src/**/*.ts'",
     "format:check": "prettier --single-quote --list-different --trailing-comma all --parser typescript 'src/**/*.ts'",
-    "check": "npm run lint:check && npm run format:check",
+    "check": "npm run lint:check",
     "build": "tsc",
     "prepublish": "npm run build"
   },

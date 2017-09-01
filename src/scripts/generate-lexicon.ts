@@ -3,12 +3,7 @@ const verbConjugations: Lexicon[] = require('../../lexicon/verb-conjugations.jso
 import { writeFile } from 'mz/fs';
 import { join } from 'path';
 
-const tenses = [
-  'infinitive',
-  'past',
-  'gerund',
-  'present',
-];
+const tenses = ['infinitive', 'past', 'gerund', 'present'];
 
 interface TenseToSomething {
   infinitive: string | any;
@@ -53,21 +48,27 @@ for (const verb of verbConjugations) {
       const calculatedConjugations = nlp(verb[tenseToLexiconKey[fromTense]]).verbs().conjugate();
 
       if (!calculatedConjugations || !calculatedConjugations[0]) {
-        tenseToCorrections[toTense][verb[tenseToLexiconKey[fromTense]]] = verb[tenseToLexiconKey[toTense]];
+        tenseToCorrections[toTense][verb[tenseToLexiconKey[fromTense]]] =
+          verb[tenseToLexiconKey[toTense]];
         continue;
       }
-
 
       const calculatedResult = calculatedConjugations[0][tenseToConjugationKey[toTense]];
       const expectedResult = verb[tenseToLexiconKey[toTense]];
 
-      // (calculatedResult !== expectedResult) && console.log('Comparing ', calculatedResult, expectedResult, calculatedResult === expectedResult);
-
       if (calculatedResult !== expectedResult) {
-        tenseToCorrections[toTense][verb[tenseToLexiconKey[fromTense]]] = verb[tenseToLexiconKey[toTense]];
+        tenseToCorrections[toTense][verb[tenseToLexiconKey[fromTense]]] =
+          verb[tenseToLexiconKey[toTense]];
       }
     }
   }
 }
 
-Promise.all(tenses.map(tense => writeFile(join(__dirname, `../../lexicon/verbs-to-${tense}.json`), JSON.stringify(tenseToCorrections[tense], null, '  '))));
+Promise.all(
+  tenses.map(tense =>
+    writeFile(
+      join(__dirname, `../../lexicon/verbs-to-${tense}.json`),
+      JSON.stringify(tenseToCorrections[tense], null, '  '),
+    ),
+  ),
+);

@@ -8,6 +8,7 @@ describe('loadRules', () => {
     const result = loadRules();
     expect(result.map(rule => rule.meta.key)).to.deep.equal([
       'no-whitespace-padding',
+      'first-word-verb',
       'first-letter-capital',
       'no-trailing-dot',
     ]);
@@ -19,6 +20,7 @@ describe('loadRules', () => {
     });
     expect(result.map(rule => rule.meta.key)).to.deep.equal([
       'no-whitespace-padding',
+      'first-word-verb',
       'no-trailing-dot',
     ]);
   });
@@ -31,6 +33,7 @@ describe('loadRules', () => {
     });
     expect(result.map(rule => rule.meta.key)).to.deep.equal([
       'no-whitespace-padding',
+      'first-word-verb',
       'first-letter-capital',
       'no-trailing-dot',
     ]);

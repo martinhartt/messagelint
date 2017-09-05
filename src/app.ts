@@ -7,6 +7,17 @@ import ruleRunner from './rules/rule-runner';
 import { ResultStatus } from './rules/rule-types';
 
 export default async function app(command: string, message: string) {
+  const gitRootCommand = await execa.shell('git rev-parse --show-toplevel');
+  const gitRoot = gitRootCommand.stdout;
+
+  let config: object | null;
+  try {
+    const configFile = await readFile(join(gitRoot, '.messagelintrc.json'));
+    config = JSON.parse(configFile.toString('ascii'));
+  } catch (e) {
+    config = null;
+  }
+
   switch (command) {
     case 'setup':
       console.log('Setting up MessageLint...\n'); // tslint:disable-line:no-console
@@ -14,8 +25,7 @@ export default async function app(command: string, message: string) {
       const hookTemplatePath = join(__dirname, '../hooks/commit-msg');
       const hookTemplateContent = await readFile(hookTemplatePath);
 
-      const gitRoot = await execa.shell('git rev-parse --show-toplevel');
-      const hookPath = join(gitRoot.stdout, '.git/hooks/', 'commit-msg');
+      const hookPath = join(gitRoot, '.git/hooks/', 'commit-msg');
 
       writeFile(hookPath, hookTemplateContent);
       chmod(hookPath, '755');

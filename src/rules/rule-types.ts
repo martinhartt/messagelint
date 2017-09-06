@@ -31,8 +31,18 @@ export interface Rule {
   evaluate: RuleEvaluator;
 }
 
-export interface Config {
-  [key: string]: boolean | object;
+export interface BaseConfig {
+  name?: string;
+  prefix: RegExp;
+  skip: RegExp;
+  shouldReject: boolean;
+  shouldModify: boolean;
 }
 
-export type RuleFactory = (config?: Config) => Rule;
+export interface GlobalConfig extends BaseConfig {
+  rules: {
+    [name: string]: BaseConfig | boolean;
+  };
+}
+
+export type RuleFactory = (config?: BaseConfig) => Rule;

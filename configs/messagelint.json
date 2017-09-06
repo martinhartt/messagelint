@@ -1,5 +1,6 @@
 {
+  "name": "messagelint",
   "skip": [
     "^\\s*v\\d+(\\.d+(\\.d+)?)?\\s*$"
-  ]
+  ],
 }

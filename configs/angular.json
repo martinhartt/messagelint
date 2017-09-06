@@ -1,0 +1,7 @@
+{
+  "name": "angular",
+  "prefix": "^(feat|bug|fix|docs|style|refactor|test|chore)\\(([a-z]\\w*)\\): $",
+  "rules": {
+    "first-letter-capital": false
+  }
+}

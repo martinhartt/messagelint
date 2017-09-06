@@ -1,8 +1,16 @@
 {
+  "name": "base",
   "extends": [],
   "prefix": "",
   "skip": [],
   "shouldReject": true,
-  "shouldModify": true,
-  "rules": {}
+  "whenFixable": "modify",
+  "rules": {
+    "no-whitespace-padding": true,
+    "first-word-verb": {
+      "tense": "infinitive"
+    },
+    "first-letter-capital": true,
+    "no-trailing-dot": true
+  }
 }

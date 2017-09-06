@@ -34,7 +34,7 @@ export interface Rule {
 export interface BaseConfig {
   name?: string;
   prefix: RegExp;
-  skip: RegExp;
+  skip: RegExp[];
   shouldReject: boolean;
   shouldModify: boolean;
 }

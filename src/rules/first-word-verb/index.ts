@@ -1,13 +1,17 @@
-import { ResultStatus, RuleFactory } from '../rule-types';
+import { BaseConfig, ResultStatus, RuleFactory } from '../rule-types';
 let nlp = require('compromise'); // tslint:disable-line
 import matchStringCasing from '../../util/matchStringCasing';
+
+interface FirstWordVerbConfig extends BaseConfig {
+  tense: string;
+}
 
 function getInfinitiveFromLexicon(verb: string): string {
   // HACK Find verb in list
   return require('../../../lexicon/verbs-to-infinitive.json')[verb];
 }
 
-export const firstWordVerbRule: RuleFactory = config => ({
+export const firstWordVerbRule: RuleFactory = (config: FirstWordVerbConfig) => ({
   meta: {
     name: 'First word verb',
     key: 'first-word-verb',

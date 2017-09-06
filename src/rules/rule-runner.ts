@@ -2,10 +2,7 @@ import { Commit, Result, ResultStatus, Rule } from './rule-types';
 
 type ConfirmModifyCallback = (proposedMessage: string) => Promise<boolean>;
 
-export default async function ruleRunner(
-  rules: Rule[],
-  commit: Commit,
-): Promise<Result> {
+export default async function ruleRunner(rules: Rule[], commit: Commit): Promise<Result> {
   const currentCommit = commit;
   let lastModifyResult: Result | null = null;
 

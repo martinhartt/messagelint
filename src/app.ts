@@ -2,6 +2,7 @@ import * as execa from 'execa';
 import { chmod, readFile, writeFile } from 'mz/fs';
 import { join } from 'path';
 
+import setupConfig from './config/setup-config';
 import loadRules from './rules/load-rules';
 import ruleRunner from './rules/rule-runner';
 import { ResultStatus } from './rules/rule-types';
@@ -10,13 +11,15 @@ export default async function app(command: string, message: string) {
   const gitRootCommand = await execa.shell('git rev-parse --show-toplevel');
   const gitRoot = gitRootCommand.stdout;
 
-  let config: object | null;
+  let rawConfig: object | null;
   try {
     const configFile = await readFile(join(gitRoot, '.messagelintrc.json'));
-    config = JSON.parse(configFile.toString('ascii'));
+    rawConfig = JSON.parse(configFile.toString('ascii'));
   } catch (e) {
-    config = null;
+    rawConfig = null;
   }
+
+  const config = setupConfig(rawConfig || {});
 
   switch (command) {
     case 'setup':
@@ -32,7 +35,7 @@ export default async function app(command: string, message: string) {
 
       return 'Success ✅';
     case 'lint':
-      const rules = loadRules();
+      const rules = loadRules(config);
 
       const result = await ruleRunner(rules, {
         message: {
